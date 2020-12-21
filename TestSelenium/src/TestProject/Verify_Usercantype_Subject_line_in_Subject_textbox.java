@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Verify_Usercantype_Subject_line_in_Subject_textbox {
 	private static WebElement element = null;
 	public static void main(String[] args) {
-		
+
 		String msg ="//h2//div[contains(text(),'New Message')]";
 		System.setProperty("webdriver.chrome.driver", "C:/Users/payal.agarwal/Desktop/chromedriver_win32 (3)/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -34,18 +34,24 @@ public class Verify_Usercantype_Subject_line_in_Subject_textbox {
 		//click compose icon 
 		element =driver.findElement(By.xpath("//div[contains(text(),'Compose')]"));
 		element.click();
-		//verify new message msg appears after click compose 
-		element =driver.findElement(By.xpath("//h2//div[contains(text(),'New Message')]"));
-		boolean b1 = element.isDisplayed();
-		if(b1)
+		//type in subject textbox
+		element =driver.findElement(By.xpath("//input[@name='subjectbox']"));
+		element.sendKeys("test subject");
+		String text =driver.findElement(By.xpath("//input[@name='subjectbox']")).getAttribute("value");
+		//print text enters in subject
+		System.out.println("text ="+text);
+		//verify text entered 
+		if(text.equalsIgnoreCase("test subject"))
+
 		{
-			System.out.println("New Message title gets dispaly when click compose ");
+			System.out.println("user is able to type in To section ");
 		}
 		else
 		{
-			System.out.println("No New Message title gets dispaly when click compose ");
+			System.out.println("user is not able to type in To section ");
 		}
 		driver.close();
+
 	}
-	}
+}
 

@@ -32,17 +32,22 @@ public class Verify_usercantype_email_in_emailbodysection {
 	//click compose icon 
 	element =driver.findElement(By.xpath("//div[contains(text(),'Compose')]"));
 	element.click();
-	//verify new message msg appears after click compose 
-	element =driver.findElement(By.xpath("//h2//div[contains(text(),'New Message')]"));
-	boolean b1 = element.isDisplayed();
-	if(b1)
-	{
-		System.out.println("New Message title gets dispaly when click compose ");
-	}
-	else
-	{
-		System.out.println("No New Message title gets dispaly when click compose ");
-	}
-	driver.close();
+	//type in subject textbox
+			element =driver.findElement(By.xpath("//div[@aria-label='Message Body']"));
+			element.sendKeys("test email body");
+			String text =driver.findElement(By.xpath("//div[@aria-label='Message Body']")).getText();
+					//print text enters in subject
+			System.out.println("text ="+text);
+			//verify text entered 
+			if(text.equalsIgnoreCase("test email body"))
+
+			{
+				System.out.println("user is able to type in email body section ");
+			}
+			else
+			{
+				System.out.println("user is not able to type in email body section ");
+			}
+			//driver.close();
 }
 }
