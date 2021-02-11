@@ -6,12 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+@Test
 public class Verify_Compose_button_Frame_gets_open {
 	private static WebElement element = null;
 	public static void main(String[] args) {
 		String msg ="//h2//div[contains(text(),'New Message')]";
-		System.setProperty("webdriver.chrome.driver", "C:/Users/payal.agarwal/Desktop/chromedriver_win32 (3)/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:/Users/payal.agarwal/Desktop/chromedriver_win32 (5)/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("https://mail.google.com/mail/u/0/#inbox");
